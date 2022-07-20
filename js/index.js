@@ -76,7 +76,7 @@ function addProduct() {
 function addProduct() {
   window.location.assign(`addProduct.html?u=${key}`);
 }
-loadUserProducts(key);
+
 
 function loadUserProducts(index) {
   //fetch products array from localstorage
@@ -106,3 +106,5 @@ function loadUserProducts(index) {
     // console.log(product);
   });
 }
+
+loadUserProducts(key);
