@@ -36,6 +36,12 @@
 
 // console.log(JSON.parse(localStorage.getItem("tables")));
 
+// let tables = {
+//     users:[],
+//     products:[],
+//     currentUser:""
+// }
+
 //1. to change login to logout functionality
 //2. to display user name on the navigation
 let checkLogout = JSON.parse(localStorage.getItem("logout"));
