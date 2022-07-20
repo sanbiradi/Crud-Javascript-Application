@@ -44,6 +44,10 @@
 
 //1. to change login to logout functionality
 //2. to display user name on the navigation
+let checkLogout = JSON.parse(localStorage.getItem("logout"));
+if (checkLogout) {
+  window.location.assign("login.html");
+}
 let logout;
 let getLogout = () => {
   localStorage.setItem("logout", true);
@@ -51,10 +55,7 @@ let getLogout = () => {
   window.location.assign("login.html");
 };
 
-let checkLogout = JSON.parse(localStorage.getItem("logout"));
-if (checkLogout) {
-  window.location.assign("login.html");
-}
+
 
 function getUrlKey() {
   let url_string = window.location.href;
