@@ -10,45 +10,57 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css
     "
     />
+    <link rel="shortcut icon" href="shinchan.png" type="image/x-icon" />
   </head>
   <body class="p-5">
     <div class="container">
       <div class="card border-0 text-bg-light p-5" style="border-radius: 0px">
         <h1 class="mb-5 text-primary">Login to Crud-app</h1>
-        <div class="card ">
+        <div class="card">
           <div class="card-header text-bg-secondary">Login</div>
+
           <div class="card-body">
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label"
-                >Email address</label
+            <div class="card-title"><b id="message"></b></div>
+            <form action="" id="form">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Username</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                />
+                <a href="forgotPassword.html" class="form-text text-muted fs-6"
+                  >Forgot password?</a
+                >
+              </div>
+
+              <button type="submit" class="btn btn-dark">Submit</button>
+              <a href="index.html" class="btn btn-outline-dark">Cancel</a>
+              <a
+                href="createAccount.html"
+                class="form-text text-primary float-right"
+                >Have'nt account yet?</a
               >
-              <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label"
-                >Password</label
-              >
-              <input
-                type="password"
-                class="form-control"
-                id="exampleInputPassword1"
-              />
-              <a href="forgotPassword.html" class="form-text text-muted fs-6">Forgot password?</a>
-            </div>
-            
-            <button type="submit" class="btn btn-dark">Submit</button>
-            <a href="index.html" class="btn btn-outline-dark">Cancel</a>
-            <a href="createAccount.html" class="form-text text-primary float-right">Have'nt account yet?</a>
+            </form>
           </div>
         </div>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js
     "></script>
+    <script src="js/login.js"></script>
   </body>
 </html>

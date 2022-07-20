@@ -10,6 +10,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css
     "
     />
+    <link rel="shortcut icon" href="shinchan.png" type="image/x-icon">
   </head>
   <body class="p-5">
     <div class="container">
@@ -23,7 +24,7 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/products">Products</a>
+                    <a class="nav-link" aria-current="page" href="" onclick="gotoAllProducts()" >All Products</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/users">Users</a>
@@ -31,11 +32,12 @@
                 </ul>
               </div>
               <div class="d-flex">
-                <a href="login.html" class="btn btn-secondary btn-sm w-24">Login</a>
+                <a href="#" class="btn btn-sm w-24 text-primary" id="username" style="margin-right:10px ;"></a>
+                <a href="#" class="btn btn-secondary btn-sm w-24" onclick="getLogout()">Logout</a>
               </div>
             </div>
           </nav>
-        <h5 class="mb-4 text-dark">My Products <a href="addProduct.html" class="btn btn-md btn-primary float-end">Add Product</a></h5>
+        <h5 class="mb-4 text-dark">My Products <a href="#" class="btn btn-md btn-primary float-end" onclick="addProduct()">Add Product</a></h5>
         <table class="table text-bg-light" id="records">
           <thead>
             <td>Sr. No</td>
@@ -43,15 +45,6 @@
             <td>Price</td>
             <td>Actions</td>
           </thead>
-          <tr>
-            <td>1</td>
-            <td>Shoes</td>
-            <td>2000</td>
-            <td>
-                <button class="btn btn-sm btn-success text-white w-25">Edit</button>
-                <button class="btn btn-sm btn-danger w-25">Delete</button>
-            </td>
-          </tr>
         </table>
       </div>
     </div>

@@ -1,14 +1,18 @@
+function getUrlKey() {
+  let url_string = window.location.href;
+  let url = new URL(url_string);
+  return url.searchParams.get("u");
+}
+
+let key = getUrlKey();
 // let checkLogout = JSON.parse(localStorage.getItem("logout"));
 // if (checkLogout) {
 //   window.location.assign("createAccount.html");
 // }
 
-let userFullName = document.querySelector("#name");
-let userName = document.querySelector("#user-name");
-let userPassword = document.querySelector("#password");
-let confirmPassword = document.querySelector("#cpassword");
+let productName = document.querySelector("#product-name");
+let productPrice = document.querySelector("#product-price");
 let form = document.querySelector(".form");
-let inputs = document.querySelectorAll("input");
 let hasErrors = false;
 
 function errorMessage(element, color, msg) {
@@ -23,7 +27,7 @@ function errorMessage(element, color, msg) {
 
 function isEmpty(element) {
   if (element.value.length == 0) {
-    errorMessage(element, "red", "Please enter the full name");
+    errorMessage(element, "red", "Please fill all details of the product.");
     hasErrors = true;
   }
 }
@@ -42,36 +46,45 @@ function makeId() {
   return r;
 }
 
+function getUserId(key) {
+  let users = JSON.parse(localStorage.getItem("users"));
+  console.log(users[key]);
+}
+
+function setProductId(id) {
+  let users = JSON.parse(localStorage.getItem("users"));
+  users[key].p_id.push(id);
+  localStorage.setItem("users", JSON.stringify(users));
+}
+
 form.addEventListener("submit", (e) => {
   // localStorage.clear();
   e.preventDefault();
-  isEmpty(userFullName);
-  isEmpty(userName);
-  isEmpty(userPassword);
-  isEmpty(confirmPassword);
-  if (userPassword.value !== confirmPassword.value) {
-    hasErrors = true;
-  }
+  isEmpty(productName);
+  isEmpty(productPrice);
   console.log(hasErrors);
+  console.log(key);
   if (hasErrors === false) {
-    let users = JSON.parse(localStorage.getItem("users")) || [];
-    let len = users.length;
+    let products = JSON.parse(localStorage.getItem("products")) || [];
+    let len = products.length;
     let tempid = makeId();
 
-    user = {
+    let product = {
       index: len + 1,
-      u_id: tempid,
-      fullName: userFullName.value,
-      username: userName.value,
-      password: userPassword.value,
+      p_id: tempid,
+      u_id: getUserId(),
+      productName: productName.value,
+      productPrice: productPrice.value,
     };
 
-    users.push(user);
-    localStorage.setItem("ActiveAC", JSON.stringify(len));
-    localStorage.setItem("users", JSON.stringify(users));
-    console.log("Account has been created!");
+    setProductId(tempid);
+
+    products.push(product);
+
+    localStorage.setItem("products", JSON.stringify(products));
+    console.log("product has been created!");
     let logout = false;
     localStorage.setItem("logout", false);
-    window.location.assign(`index.html?key=${len}`);
+    window.location.assign(`index.html?u=${key}`);
   }
 });
